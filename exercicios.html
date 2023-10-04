@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+        .calculadora{
+            margin-top: 40px;
+            border: 1px solid #000;
+            padding: 20px;
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px #000;
+        }
+        .btn{
+            width: 60px;
+            height: 52px;
+            margin: 5px;
+            box-shadow: 1px 1px 1px #000;
+        }
+        .clear{
+            width: 130px;
+        }
+        .enter{
+            height: 110px;
+        }
+        .zero{
+            width: 130px;
+        }
+        .resultado{
+            text-align: right;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            bottom: 1px solid #000;
+            box-shadow: 1px 1px 1px #000;
+        }
+    </style>
+</head>
+<body style="background: #d9d9d9;">
+    <div>
+        <a href="exercicios.html">Exercicios</a>
+    </div>
+    
+    <div class="container">
+
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <div class="calculadora">
+                    <p style="color: white; margin-top: 5px;">Insira o primeiro valor</p>
+                    <form action="">
+                    <input type="number" id="dado1" class="form-control">
+                    <p style="color: white; margin-top: 5px;">Insira o segundo valor</p>
+                    <input type="number" id="dado2" class="form-control">
+                    <button onclick="calcular()" type="button" class="btn btn-dark btn-lg font-weight-light zero">Executar</button>
+                    </form>
+                    <p style="color: white; margin-top: 5px;"> O maior valor entre os valores apresentados é:</p>
+
+                    
+
+                    <input type="text" id="resultado" class="form-control resultado" placeholder="0" disabled="disabled"/>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script>
+    function calcular(num1,num2){
+        var num1 = document.getElementById("dado1").value;
+        var num2 = document.getElementById("dado2").value;
+
+            if(num1 > num2){
+                document.getElementById('resultado').value = 'O número ' + num1 + ' é maior que ' + num2
+            }
+            if(num1 < num2){
+                document.getElementById('resultado').value = 'O número ' + num2 + ' é maior que ' + num1
+            }
+            if(num1 === num2){
+                document.getElementById('resultado').value = 'Os números são iguais'
+            }
+        }
+        
+</script>
+
+</body>
+</html>

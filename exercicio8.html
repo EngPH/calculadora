@@ -59,14 +59,17 @@
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <div class="calculadora">
-                    <p style="color: white; margin-top: 5px;">Insira o primeiro valor</p>
+                    <p style="color: white; margin-top: 5px;">Escolha a opção:</p>
                     <form action="">
-                    <input type="number" id="dado1" class="form-control">
-                    <p style="color: white; margin-top: 5px;">Insira o segundo valor</p>
-                    <input type="number" id="dado2" class="form-control">
+                        <select id="opcoes">
+                            <option id="op1" value="1" class="text-muted">Opção 1</option>
+                            <option id="op2" value="2" class="text-muted">Opção 2</option>
+                            <option id="op3" value="3" class="text-muted">Opção 3</option>
+                        </select>
+<br><br>
                     <button onclick="calcular()" type="button" class="btn btn-dark btn-lg font-weight-light zero">Executar</button>
                     </form>
-                    <p style="color: white; margin-top: 5px;"> O maior valor entre os valores apresentados é:</p>
+                    <p style="color: white; margin-top: 5px;"> A opção escolhida é:</p>
 
                     
 
@@ -78,19 +81,20 @@
 
     </div>
 <script>
-    function calcular(num1,num2){
-        var num1 = document.getElementById("dado1").value;
-        var num2 = document.getElementById("dado2").value;
+    function calcular(){
 
-            if(num1 > num2){
-                document.getElementById('resultado').value = 'O número ' + num1 + ' é maior que ' + num2
+            var num1 = document.getElementById("opcoes").value;
+
+            if(num1 == 1){
+                document.getElementById('resultado').value = 'A opção 1 foi escolhida'
             }
-            if(num1 < num2){
-                document.getElementById('resultado').value = 'O número ' + num2 + ' é maior que ' + num1
+            else if(num1 == 2){
+                document.getElementById('resultado').value = 'A opção 2 foi escolhida'
             }
-            if(num1 === num2){
-                document.getElementById('resultado').value = 'Os números são iguais'
+            else if(num1 == 3){
+                document.getElementById('resultado').value = 'A opção 3 foi escolhida'
             }
+           
         }
         
 </script>

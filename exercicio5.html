@@ -59,14 +59,12 @@
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <div class="calculadora">
-                    <p style="color: white; margin-top: 5px;">Insira o primeiro valor</p>
                     <form action="">
-                    <input type="number" id="dado1" class="form-control">
-                    <p style="color: white; margin-top: 5px;">Insira o segundo valor</p>
-                    <input type="number" id="dado2" class="form-control">
+                    <p style="color: white; margin-top: 5px;">Insira a variavel a, b ou c:</p>
+                    <input type="text" id="dado2" class="form-control">
                     <button onclick="calcular()" type="button" class="btn btn-dark btn-lg font-weight-light zero">Executar</button>
                     </form>
-                    <p style="color: white; margin-top: 5px;"> O maior valor entre os valores apresentados é:</p>
+                    <p style="color: white; margin-top: 5px;"> A variavel é:</p>
 
                     
 
@@ -78,18 +76,20 @@
 
     </div>
 <script>
-    function calcular(num1,num2){
-        var num1 = document.getElementById("dado1").value;
-        var num2 = document.getElementById("dado2").value;
+    function calcular(num1){
+        var num1 = document.getElementById("dado2").value;
 
-            if(num1 > num2){
-                document.getElementById('resultado').value = 'O número ' + num1 + ' é maior que ' + num2
+            if(num1 == "a"){
+                document.getElementById('resultado').value = 'A variável é A'
             }
-            if(num1 < num2){
-                document.getElementById('resultado').value = 'O número ' + num2 + ' é maior que ' + num1
+            else if(num1 == "b"){
+                document.getElementById('resultado').value = 'A variável é B'
             }
-            if(num1 === num2){
-                document.getElementById('resultado').value = 'Os números são iguais'
+            else if(num1 == "c"){
+                document.getElementById('resultado').value = 'A variável é C'
+            }
+            else{
+                document.getElementById('resultado').value = 'A variável é inválida'
             }
         }
         

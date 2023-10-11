@@ -59,18 +59,18 @@
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <div class="calculadora">
-                    <p style="color: white; margin-top: 5px;">Insira o primeiro valor</p>
+                    <p style="color: white; margin-top: 5px;">Insira os números </p>
                     <form action="">
                     <input type="number" id="dado1" class="form-control">
-                    <p style="color: white; margin-top: 5px;">Insira o segundo valor</p>
-                    <input type="number" id="dado2" class="form-control">
-                    <button onclick="calcular()" type="button" class="btn btn-dark btn-lg font-weight-light zero">Executar</button>
-                    </form>
-                    <p style="color: white; margin-top: 5px;"> O maior valor entre os valores apresentados é:</p>
-
+                    <button onclick="salvar()" type="button" style="margin-top: 15px; width: auto;" class="btn btn-dark btn-lg font-weight-light zero">Enviar número</button>
                     
-
+                    <button onclick="calcular()" type="button" style="margin-top: 15px;" class="btn btn-dark btn-lg font-weight-light zero">Calcular</button>
+                    </form>
+                    <p style="color: white; margin-top: 5px;"> Você informou os números:</p>
+                    <input type="text" id="resultado2" class="form-control resultado" placeholder="0" disabled="disabled"/>
+                    <p style="color: white; margin-top: 5px;"> O maior número é:</p>
                     <input type="text" id="resultado" class="form-control resultado" placeholder="0" disabled="disabled"/>
+                   
 
                 </div>
             </div>
@@ -78,21 +78,27 @@
 
     </div>
 <script>
-    function calcular(num1,num2){
+        var arrayTotal = []
+    function salvar(num1){
         var num1 = document.getElementById("dado1").value;
-        var num2 = document.getElementById("dado2").value;
-
-            if(num1 > num2){
-                document.getElementById('resultado').value = 'O número ' + num1 + ' é maior que ' + num2
-            }
-            if(num1 < num2){
-                document.getElementById('resultado').value = 'O número ' + num2 + ' é maior que ' + num1
-            }
-            if(num1 === num2){
-                document.getElementById('resultado').value = 'Os números são iguais'
-            }
+        arrayTotal.push(num1)
+        document.getElementById('resultado2').value = arrayTotal
         }
-        
+
+    function calcular(){
+        var arrayNumero =[] 
+        for(var i =0;i<arrayTotal.length;i++){
+        arrayNumero.push(parseInt(arrayTotal[i]));
+        }
+
+        var soma = 0;
+        for(var i =0;i<arrayNumero.length;i++){
+        soma+=arrayNumero[i];
+        var media = soma/arrayNumero.length
+        document.getElementById('resultado').value = Math.max.apply(null, arrayNumero );
+
+        }
+    }
 </script>
 
 </body>
